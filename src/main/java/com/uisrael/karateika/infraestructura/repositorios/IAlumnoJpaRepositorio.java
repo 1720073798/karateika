@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.uisrael.karateika.infraestructura.persistencias.jpa.AlumnoJpa;
 
-public interface IAlumnoRepositorio extends JpaRepository<AlumnoJpa, Integer> {
+public interface IAlumnoJpaRepositorio extends JpaRepository<AlumnoJpa, Integer> {
 
 }
