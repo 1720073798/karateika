@@ -12,7 +12,7 @@ public class Comprobante implements Serializable{
 	 private final String com_ruta_archivo;
 	 private final LocalDate com_fecha_subida;
 	 
-	 private Comprobante(int com_id, String com_nombre, String com_ruta_archivo, LocalDate com_fecha_subida) {
+	 public Comprobante(int com_id, String com_nombre, String com_ruta_archivo, LocalDate com_fecha_subida) {
 		this.com_id = com_id;
 		this.com_nombre = com_nombre;
 		this.com_ruta_archivo = com_ruta_archivo;

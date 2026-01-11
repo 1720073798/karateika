@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.uisrael.karateika.infraestructura.persistencias.jpa.AscensoJpa;
 
-public interface IAscensoRepositorio extends JpaRepository<AscensoJpa, Integer> {
+public interface IAscensoJpaRepositorio extends JpaRepository<AscensoJpa, Integer> {
 
 }

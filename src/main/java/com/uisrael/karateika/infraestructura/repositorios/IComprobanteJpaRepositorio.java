@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.uisrael.karateika.infraestructura.persistencias.jpa.ComprobanteJpa;
 
-public interface IComprobanteRepositorio extends JpaRepository<ComprobanteJpa, Integer>{
+public interface IComprobanteJpaRepositorio extends JpaRepository<ComprobanteJpa, Integer>{
 
 }

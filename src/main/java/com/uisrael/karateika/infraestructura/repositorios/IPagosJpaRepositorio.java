@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.uisrael.karateika.infraestructura.persistencias.jpa.PagosJpa;
 
-public interface IPagosRepositorio extends JpaRepository<PagosJpa, Integer> {
+public interface IPagosJpaRepositorio extends JpaRepository<PagosJpa, Integer> {
 
 }

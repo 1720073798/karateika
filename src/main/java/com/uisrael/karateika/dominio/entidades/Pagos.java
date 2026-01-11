@@ -22,7 +22,7 @@ public class Pagos implements Serializable{
 	private final LocalDate pag_fecha_registro;
 	
 	
-	private Pagos(int pag_id, int com_id, int alu_id, int pag_mes, int pag_anio, LocalDate pag_fecha_pago,
+	public Pagos(int pag_id, int com_id, int alu_id, int pag_mes, int pag_anio, LocalDate pag_fecha_pago,
 			String pag_metodo_pago, String pag_numero_recibo, String pag_observacion, BigDecimal pag_monto,
 			String pag_registrado_por, LocalDate pag_fecha_registro) {
 		this.pag_id = pag_id;
