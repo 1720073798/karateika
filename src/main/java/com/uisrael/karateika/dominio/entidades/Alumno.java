@@ -28,6 +28,7 @@ public class Alumno implements Serializable{
 	private final LocalDate alu_fecha_modificacion;
 	
 
+
 	public Alumno(int alu_id, String alu_cedula, String alu_nombre, String alu_apellido, String alu_direccion,
 			String alu_telefono, String alu_email, LocalDate alu_fecha_nacimiento, LocalDate alu_fecha_ingreso,
 			String alu_cinturon_ingreso, String alu_cinturon_actual, String alu_nombre_representante,
@@ -52,73 +53,109 @@ public class Alumno implements Serializable{
 		this.alu_fecha_modificacion = alu_fecha_modificacion;
 	}
 
+
+
 	public int getAlu_id() {
 		return alu_id;
 	}
 
-	public String getAlu_nombre() {
-		return alu_nombre;
-	}
+
 
 	public String getAlu_cedula() {
 		return alu_cedula;
 	}
 
+
+
+	public String getAlu_nombre() {
+		return alu_nombre;
+	}
+
+
+
 	public String getAlu_apellido() {
 		return alu_apellido;
 	}
+
+
 
 	public String getAlu_direccion() {
 		return alu_direccion;
 	}
 
+
+
 	public String getAlu_telefono() {
 		return alu_telefono;
 	}
+
+
 
 	public String getAlu_email() {
 		return alu_email;
 	}
 
+
+
 	public LocalDate getAlu_fecha_nacimiento() {
 		return alu_fecha_nacimiento;
 	}
+
+
 
 	public LocalDate getAlu_fecha_ingreso() {
 		return alu_fecha_ingreso;
 	}
 
+
+
 	public String getAlu_cinturon_ingreso() {
 		return alu_cinturon_ingreso;
 	}
+
+
 
 	public String getAlu_cinturon_actual() {
 		return alu_cinturon_actual;
 	}
 
+
+
 	public String getAlu_nombre_representante() {
 		return alu_nombre_representante;
 	}
+
+
 
 	public String getAlu_telefono_representante() {
 		return alu_telefono_representante;
 	}
 
+
+
 	public char getAlu_estado() {
 		return alu_estado;
 	}
+
+
 
 	public boolean isAlu_alerta_pago() {
 		return alu_alerta_pago;
 	}
 
+
+
 	public LocalDate getAlu_fecha_creacion() {
 		return alu_fecha_creacion;
 	}
 
+
+
 	public LocalDate getAlu_fecha_modificacion() {
 		return alu_fecha_modificacion;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -131,5 +168,7 @@ public class Alumno implements Serializable{
 				+ ", alu_estado=" + alu_estado + ", alu_alerta_pago=" + alu_alerta_pago + ", alu_fecha_creacion="
 				+ alu_fecha_creacion + ", alu_fecha_modificacion=" + alu_fecha_modificacion + "]";
 	}
+
+
 }
 

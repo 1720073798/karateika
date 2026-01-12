@@ -15,7 +15,6 @@ public class Cinturon implements Serializable{
 	private final String cin_descripcion;
 	
 	public Cinturon(int cin_id, String cin_nombre, String cin_nivel, String cin_descripcion) {
-		super();
 		this.cin_id = cin_id;
 		this.cin_nombre = cin_nombre;
 		this.cin_nivel = cin_nivel;

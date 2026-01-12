@@ -3,6 +3,7 @@ package com.uisrael.karateika.presentacion.dto.request;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class AsistenciaRequestDTO {
 
     @Pattern(regexp = "^[PFJ]$", message = "El estado debe ser 'P' (Presente), 'F' (Falta) o 'J' (Justificada)")
     private String asiEstado = "P";
-
+    
+    @NotBlank
     private String asiObservacion;
 }

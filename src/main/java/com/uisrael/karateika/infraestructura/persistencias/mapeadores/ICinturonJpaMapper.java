@@ -1,5 +1,14 @@
 package com.uisrael.karateika.infraestructura.persistencias.mapeadores;
 
-public interface ICinturonJpaMapper {
+import org.mapstruct.Mapper;
 
+import com.uisrael.karateika.dominio.entidades.Cinturon;
+import com.uisrael.karateika.infraestructura.persistencias.jpa.CinturonJpa;
+
+@Mapper(componentModel = "spring")
+public interface ICinturonJpaMapper {
+	
+	Cinturon toDomain(CinturonJpa entity);
+	
+	CinturonJpa toEntity(Cinturon cinturon);
 }

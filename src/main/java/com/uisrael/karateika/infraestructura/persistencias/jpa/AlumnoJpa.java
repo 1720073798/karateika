@@ -22,14 +22,11 @@ public class AlumnoJpa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int alu_id;
 	
-	@Column(name = "alu_nombre", length = 100, nullable = false)
-	private String alu_nombre;
-	
-	@Column(name = "alu_fecha_nacimiento", columnDefinition = "DATE")
-	private LocalDate alu_fecha_nacimiento;
-	
 	@Column(name = "alu_cedula", length = 10, nullable = false)
 	private String alu_cedula;
+	
+	@Column(name = "alu_nombre", length = 100, nullable = false)
+	private String alu_nombre;
 	
 	@Column(name = "alu_apellido", length = 100, nullable = false)
 	private String alu_apellido;
@@ -42,6 +39,9 @@ public class AlumnoJpa implements Serializable{
 	
 	@Column(name = "alu_email", length = 100, nullable = false)
 	private String alu_email;
+	
+	@Column(name = "alu_fecha_nacimiento", columnDefinition = "DATE")
+	private LocalDate alu_fecha_nacimiento;
 	
 	@Column(name = "alu_fecha_ingreso", columnDefinition = "DATE")
 	private LocalDate alu_fecha_ingreso;
@@ -69,5 +69,4 @@ public class AlumnoJpa implements Serializable{
 	
 	@Column(name = "alu_fecha_modificacion", columnDefinition = "DATE")
 	private LocalDate alu_fecha_modificacion;
-
 }
