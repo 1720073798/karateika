@@ -11,7 +11,7 @@ public class CinturonRequestDTO {
 	@NotBlank
 	private String cin_nombre;
 	@NotBlank
-	private String cel;
+	private String cin_nivel;
 	@NotBlank
 	private String cin_descripcion;
 }

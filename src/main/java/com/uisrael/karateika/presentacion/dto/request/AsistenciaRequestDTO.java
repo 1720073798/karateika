@@ -12,20 +12,20 @@ import lombok.Data;
 public class AsistenciaRequestDTO {
 
     @NotNull(message = "El ID de la asistencia es obligatorio")
-    private Integer asiId; 
+    private Integer asi_id; 
 
     @NotNull(message = "El ID del alumno es obligatorio")
-    private Integer aluId;
+    private Integer alu_id;
 
     @NotNull(message = "La fecha de asistencia es obligatoria")
-    private LocalDate asiFecha;
+    private LocalDate asi_fecha;
 
     @NotNull(message = "La hora de asistencia es obligatoria")
-    private LocalTime asiHora;
+    private LocalTime asi_hora;
 
     @Pattern(regexp = "^[PFJ]$", message = "El estado debe ser 'P' (Presente), 'F' (Falta) o 'J' (Justificada)")
-    private String asiEstado = "P";
+    private String asi_estado = "P";
     
     @NotBlank
-    private String asiObservacion;
+    private String asi_observacion;
 }
