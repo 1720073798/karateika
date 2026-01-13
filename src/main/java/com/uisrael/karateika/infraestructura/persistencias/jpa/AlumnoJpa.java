@@ -2,12 +2,15 @@ package com.uisrael.karateika.infraestructura.persistencias.jpa;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -69,4 +72,13 @@ public class AlumnoJpa implements Serializable{
 	
 	@Column(name = "alu_fecha_modificacion", columnDefinition = "DATE")
 	private LocalDate alu_fecha_modificacion;
+	
+	 @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
+	    private List<AscensoJpa> ascensos;
+
+	    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
+	    private List<AsistenciaJpa> asistencias;
+
+	    @OneToMany(mappedBy = "alumno")
+	    private List<PagosJpa> pagos;
 }

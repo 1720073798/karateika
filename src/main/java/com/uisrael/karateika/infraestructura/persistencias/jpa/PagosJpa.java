@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -23,11 +25,13 @@ public class PagosJpa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pag_id;
 
-    @Column(name = "com_id", nullable = false)
-    private int com_id;
+	@ManyToOne
+	@JoinColumn(name = "com_id", nullable = false)
+	private ComprobanteJpa fkComprobante;
 
-    @Column(name = "alu_id", nullable = false)
-    private int alu_id;
+    @ManyToOne
+    @JoinColumn(name = "alu_id", nullable = false)
+    private AlumnoJpa fkAlumno;
 
     @Column(name = "pag_mes", nullable = false)
     private int pag_mes;

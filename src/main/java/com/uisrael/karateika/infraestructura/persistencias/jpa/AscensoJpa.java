@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -25,8 +27,9 @@ public class AscensoJpa implements Serializable {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int asc_id_serial;
 
-	    @Column(name = "alu_id", nullable = false)
-	    private int alu_id;
+	 	@ManyToOne
+	    @JoinColumn(name = "alu_id", nullable = false)
+	    private AlumnoJpa fkAlumno; 
 
 	    @Column(name = "asc_cinturon", length = 50, nullable = false)
 	    private String asc_cinturon;
@@ -49,5 +52,6 @@ public class AscensoJpa implements Serializable {
 	    @Column(name = "asc_c_generado")
 	    private boolean asc_c_generado;
 	
+	    
 }
 

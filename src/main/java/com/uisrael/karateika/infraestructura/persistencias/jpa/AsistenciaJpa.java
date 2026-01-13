@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 @Data
@@ -23,8 +25,9 @@ public class AsistenciaJpa implements Serializable {
 	    @Column(name = "asi_id")
 	    private int asi_id;
 
-	    @Column(name = "alu_id", nullable = false)
-	    private int alu_id;  // FK (puedes mapear con @ManyToOne si deseas relación explícita)
+	 	@ManyToOne
+	    @JoinColumn(name = "alu_id", nullable = false)
+	    private AlumnoJpa fkAlumno; 
 
 	    @Column(name = "asi_fecha", nullable = false)
 	    private LocalDate asi_fecha;
@@ -33,7 +36,7 @@ public class AsistenciaJpa implements Serializable {
 	    private LocalTime asi_hora;
 
 	    @Column(name = "asi_estado", length = 2, nullable = false)
-	    private String asi_estado;  // Ej: "P" = Presente, "F" = Falta, "T" = Tardanza
+	    private String asi_estado;  
 
 	    @Column(name = "asi_observacion", columnDefinition = "TEXT")
 	    private String asi_observacion;
