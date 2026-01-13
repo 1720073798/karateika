@@ -27,7 +27,7 @@ public class AsistenciaJpa implements Serializable {
 
 	 	@ManyToOne
 	    @JoinColumn(name = "alu_id", nullable = false)
-	    private AlumnoJpa fkAlumno; 
+	    private AlumnoJpa fkAlumnoasis; 
 
 	    @Column(name = "asi_fecha", nullable = false)
 	    private LocalDate asi_fecha;

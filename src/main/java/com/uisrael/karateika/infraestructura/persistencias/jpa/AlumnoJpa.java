@@ -73,12 +73,12 @@ public class AlumnoJpa implements Serializable{
 	@Column(name = "alu_fecha_modificacion", columnDefinition = "DATE")
 	private LocalDate alu_fecha_modificacion;
 	
-	 @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
-	    private List<AscensoJpa> ascensos;
+	@OneToMany(mappedBy = "fkAlumnoascen", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<AscensoJpa> ascensos;
 
-	    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
-	    private List<AsistenciaJpa> asistencias;
+	@OneToMany(mappedBy = "fkAlumnoasis", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<AsistenciaJpa> asistencias;
 
-	    @OneToMany(mappedBy = "alumno")
+	    @OneToMany(mappedBy = "fkAlumnopago")
 	    private List<PagosJpa> pagos;
 }

@@ -31,7 +31,7 @@ public class PagosJpa implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "alu_id", nullable = false)
-    private AlumnoJpa fkAlumno;
+    private AlumnoJpa fkAlumnopago;
 
     @Column(name = "pag_mes", nullable = false)
     private int pag_mes;

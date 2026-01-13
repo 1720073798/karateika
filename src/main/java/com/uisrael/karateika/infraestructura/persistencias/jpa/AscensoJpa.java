@@ -29,7 +29,7 @@ public class AscensoJpa implements Serializable {
 
 	 	@ManyToOne
 	    @JoinColumn(name = "alu_id", nullable = false)
-	    private AlumnoJpa fkAlumno; 
+	    private AlumnoJpa fkAlumnoascen; 
 
 	    @Column(name = "asc_cinturon", length = 50, nullable = false)
 	    private String asc_cinturon;
