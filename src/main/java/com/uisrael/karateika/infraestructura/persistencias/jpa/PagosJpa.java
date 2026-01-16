@@ -25,14 +25,6 @@ public class PagosJpa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pag_id;
 
-	@ManyToOne
-	@JoinColumn(name = "com_id", nullable = false)
-	private ComprobanteJpa fkComprobante;
-
-    @ManyToOne
-    @JoinColumn(name = "alu_id", nullable = false)
-    private AlumnoJpa fkAlumnopago;
-
     @Column(name = "pag_mes", nullable = false)
     private int pag_mes;
 
@@ -59,5 +51,13 @@ public class PagosJpa implements Serializable{
 
     @Column(name = "pag_fecha_registro", columnDefinition = "DATE")
     private LocalDate pag_fecha_registro;
+    
+	@ManyToOne
+	@JoinColumn(name = "com_id", nullable = false)
+	private ComprobanteJpa fkcomprobante;
+
+    @ManyToOne
+    @JoinColumn(name = "alu_id", nullable = false)
+    private AlumnoJpa fkalumno;
 	
 }

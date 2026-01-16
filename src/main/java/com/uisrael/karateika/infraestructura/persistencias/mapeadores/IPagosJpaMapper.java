@@ -10,5 +10,6 @@ public interface IPagosJpaMapper {
 
 	Pagos toDomain(PagosJpa entity);
 
+	
     PagosJpa toEntity(Pagos pagos);
 }

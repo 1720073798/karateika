@@ -12,4 +12,5 @@ public interface IPagosDtoMapper {
 	 Pagos toDomain(PagosRequestDTO dto);
 
 	 PagosResponseDTO toResponseDto(Pagos pagos);
+	 
 }

@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 public class AlumnoRequestDTO {
-	
 	@NotBlank
 	private int alu_id;
 	@NotBlank
@@ -42,4 +41,5 @@ public class AlumnoRequestDTO {
 	private LocalDate alu_fecha_creacion;
 	@NotBlank
 	private LocalDate alu_fecha_modificacion;
-}
+	}
+	

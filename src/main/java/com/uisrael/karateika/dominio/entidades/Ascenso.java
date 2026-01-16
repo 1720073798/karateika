@@ -3,13 +3,14 @@ package com.uisrael.karateika.dominio.entidades;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.uisrael.karateika.infraestructura.persistencias.jpa.AlumnoJpa;
+
 public class Ascenso implements Serializable {
 
 	
 		private static final long serialVersionUID = 1L;
 
 		private final int asc_id_serial;
-	    private final int alu_id;
 	    private final String asc_cinturon;
 	    private final LocalDate asc_fecha_examen;
 	    private final LocalDate asc_fecha_ascenso;
@@ -18,13 +19,14 @@ public class Ascenso implements Serializable {
 	    private final String asc_observacion;
 	    private final boolean asc_c_generado;
 	    
-		public Ascenso(int asc_id_serial, int alu_id, String asc_cinturon, LocalDate asc_fecha_examen,
-				LocalDate asc_fecha_ascenso, double asc_calificacion, String asc_evaluador, String asc_observacion,
-				boolean asc_c_generado) {
+	    private final AlumnoJpa fkalumno;
+
+		
+		public Ascenso(int asc_id_serial, String asc_cinturon, LocalDate asc_fecha_examen, LocalDate asc_fecha_ascenso,
+				double asc_calificacion, String asc_evaluador, String asc_observacion, boolean asc_c_generado,
+				AlumnoJpa fkalumno) {
 			
-			super();
 			this.asc_id_serial = asc_id_serial;
-			this.alu_id = alu_id;
 			this.asc_cinturon = asc_cinturon;
 			this.asc_fecha_examen = asc_fecha_examen;
 			this.asc_fecha_ascenso = asc_fecha_ascenso;
@@ -32,14 +34,11 @@ public class Ascenso implements Serializable {
 			this.asc_evaluador = asc_evaluador;
 			this.asc_observacion = asc_observacion;
 			this.asc_c_generado = asc_c_generado;
+			this.fkalumno = fkalumno;
 		}
 
 		public int getAsc_id_serial() {
 			return asc_id_serial;
-		}
-
-		public int getAlu_id() {
-			return alu_id;
 		}
 
 		public String getAsc_cinturon() {
@@ -70,15 +69,16 @@ public class Ascenso implements Serializable {
 			return asc_c_generado;
 		}
 
-		@Override
-		public String toString() {
-			return "Ascenso [asc_id_serial=" + asc_id_serial + ", alu_id=" + alu_id + ", asc_cinturon=" + asc_cinturon
-					+ ", asc_fecha_examen=" + asc_fecha_examen + ", asc_fecha_ascenso=" + asc_fecha_ascenso
-					+ ", asc_calificacion=" + asc_calificacion + ", asc_evaluador=" + asc_evaluador
-					+ ", asc_observacion=" + asc_observacion + ", asc_c_generado=" + asc_c_generado + "]";
+		public AlumnoJpa getFkalumno() {
+			return fkalumno;
 		}
 
-		
-	
+		@Override
+		public String toString() {
+			return "Ascenso [asc_id_serial=" + asc_id_serial + ", asc_cinturon=" + asc_cinturon + ", asc_fecha_examen="
+					+ asc_fecha_examen + ", asc_fecha_ascenso=" + asc_fecha_ascenso + ", asc_calificacion="
+					+ asc_calificacion + ", asc_evaluador=" + asc_evaluador + ", asc_observacion=" + asc_observacion
+					+ ", asc_c_generado=" + asc_c_generado + ", fkalumno=" + fkalumno + "]";
+		}		
 	    
 }

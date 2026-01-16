@@ -7,16 +7,14 @@ import lombok.Data;
 
 @Data
 public class ComprobanteRequestDTO {
-
+	
 	@NotBlank
-	 private int com_id;
+	private int com_id;
 	@NotBlank
-	 private String com_nombre;
+	private String com_nombre;
 	@NotBlank
-	 private String com_ruta_archivo;
+	private String com_ruta_archivo;
 	@NotBlank
-	 private LocalDate com_fecha_subida;
-
-	 
+	private LocalDate com_fecha_subida; 
 }
 

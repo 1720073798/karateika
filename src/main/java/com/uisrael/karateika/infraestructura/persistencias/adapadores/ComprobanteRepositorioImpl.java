@@ -44,5 +44,6 @@ public class ComprobanteRepositorioImpl implements IComprobanteRepositorio{
 	public void eliminar(int id) {
 		jpaRepository.deleteById(id);
 	}
+	
 
 }

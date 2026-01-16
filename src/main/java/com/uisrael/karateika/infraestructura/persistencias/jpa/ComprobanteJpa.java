@@ -2,14 +2,12 @@ package com.uisrael.karateika.infraestructura.persistencias.jpa;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -32,6 +30,6 @@ public class ComprobanteJpa implements Serializable{
     @Column(name = "com_fecha_subida", columnDefinition = "DATE")
     private LocalDate com_fecha_subida;
 	
-    @OneToMany(mappedBy = "fkComprobante")
-    private List<PagosJpa> pagos;
+    /*@OneToMany(mappedBy = "fkcomprobante")
+    private List<PagosJpa> pagos;*/
 }

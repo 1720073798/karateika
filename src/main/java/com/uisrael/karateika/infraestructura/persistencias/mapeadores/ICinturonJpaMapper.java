@@ -8,7 +8,7 @@ import com.uisrael.karateika.infraestructura.persistencias.jpa.CinturonJpa;
 @Mapper(componentModel = "spring")
 public interface ICinturonJpaMapper {
 	
-	Cinturon toDomain(CinturonJpa entity);
+	Cinturon toDomain(CinturonJpa cinturonJpa);
 	
 	CinturonJpa toEntity(Cinturon cinturon);
 }

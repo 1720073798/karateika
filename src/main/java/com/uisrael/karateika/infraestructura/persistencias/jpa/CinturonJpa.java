@@ -14,18 +14,17 @@ import lombok.Data;
 public class CinturonJpa implements java.io.Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cin_id;
+	private final int cin_id;
 	
-	@Column(name = "cin_nombre", length = 50, nullable = false)
-	private String cin_nombre;
+	@Column(name="cin_nombre", length=50, nullable=false)
+	private final String cin_nombre;
 	
-	@Column(name = "cin_nivel", length = 50, nullable = false)
-	private String cin_nivel;
+	@Column(name="cin_nivel", length=20, nullable=false)
+	private final String cin_nivel;
 	
-	@Column(name = "cin_descripcion", length = 100, nullable = false)
-	private String cin_descripcion;
+	@Column(name="cin_descripcion", columnDefinition="TEXT")
+	private final String cin_descripcion;
 
 }

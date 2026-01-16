@@ -10,5 +10,5 @@ public interface IComprobanteJpaMapper {
 
 	 Comprobante toDomain(ComprobanteJpa entity);
 
-	    ComprobanteJpa toEntity(Comprobante comprobante);
+	 ComprobanteJpa toEntity(Comprobante comprobante);
 }

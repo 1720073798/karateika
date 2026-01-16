@@ -23,13 +23,9 @@ public class AscensoJpa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 
-	 @Id
+	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int asc_id_serial;
-
-	 	@ManyToOne
-	    @JoinColumn(name = "alu_id", nullable = false)
-	    private AlumnoJpa fkAlumnoascen; 
 
 	    @Column(name = "asc_cinturon", length = 50, nullable = false)
 	    private String asc_cinturon;
@@ -52,6 +48,9 @@ public class AscensoJpa implements Serializable {
 	    @Column(name = "asc_c_generado")
 	    private boolean asc_c_generado;
 	
+	 	@ManyToOne
+	    @JoinColumn(name = "alu_id", nullable = false)
+	    private AlumnoJpa fkalumno; 
 	    
 }
 
