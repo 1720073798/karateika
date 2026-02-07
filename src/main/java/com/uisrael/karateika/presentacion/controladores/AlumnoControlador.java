@@ -1,6 +1,8 @@
 package com.uisrael.karateika.presentacion.controladores;
 
 import java.util.List;
+import java.time.LocalDate;
+import java.time.Period;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.uisrael.karateika.aplicacion.casouso.entradas.IAlumnoUseCase;
 import com.uisrael.karateika.presentacion.dto.request.AlumnoRequestDTO;
@@ -39,12 +42,21 @@ public class AlumnoControlador {
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public AlumnoResponseDTO crear(@Valid @RequestBody AlumnoRequestDTO request) {
+		// Validación: la fecha de nacimiento debe indicar al menos 4 años de edad
+		if (request.getAlu_fecha_nacimiento() != null) {
+			LocalDate fechaNac = request.getAlu_fecha_nacimiento();
+			LocalDate hoy = LocalDate.now();
+			int edad = Period.between(fechaNac, hoy).getYears();
+			if (edad < 4) {
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La fecha de nacimiento debe indicar al menos 4 años de edad.");
+			}
+		}
 		return alumnoDTOMapper.toResponseDto(
 				alumnoUseCase.guardar(
 						alumnoDTOMapper.toDomain(request)
 						)
 				);
 		
-	} 
+	}
 	
 }
