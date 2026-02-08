@@ -13,23 +13,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table (name = "comprobante")
-public class ComprobanteJpa implements Serializable{
+@Table(name = "comprobante")
+public class ComprobanteJpa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int com_id;
-	
-	@Column (name = "com_nombre", length = 255, nullable = false)
-    private String com_nombre;
-	
-	@Column(name = "com_ruta_archivo", length = 500, nullable = false)
-    private String com_ruta_archivo;
 
-    @Column(name = "com_fecha_subida", columnDefinition = "DATE")
-    private LocalDate com_fecha_subida;
-	
-    /*@OneToMany(mappedBy = "fkcomprobante")
-    private List<PagosJpa> pagos;*/
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int com_id;
+
+	@Column(name = "com_numero", nullable = false, unique = true)
+	private int com_numero; 
+
+	@Column(name = "com_ruta_archivo", length = 500, nullable = true)
+	private String com_ruta_archivo;
+
+	@Column(name = "com_fecha_subida", columnDefinition = "DATE", nullable = false)
+	private LocalDate com_fecha_subida;
 }
