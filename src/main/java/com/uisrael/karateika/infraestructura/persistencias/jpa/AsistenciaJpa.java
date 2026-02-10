@@ -40,4 +40,10 @@ public class AsistenciaJpa implements Serializable {
 	 	@ManyToOne
 	    @JoinColumn(name = "alu_id", nullable = false)
 	    private AlumnoJpa fkalumno;
+	 	
+	    @jakarta.persistence.PrePersist
+	    public void prePersist() {
+	        this.asi_fecha = LocalDate.now();
+	        this.asi_hora  = LocalTime.now();
+	    }
 }

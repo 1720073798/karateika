@@ -36,4 +36,10 @@ public class AsistenciaUseCaseImpl implements IAsistenciaUseCase {
 	public void eliminar(int id) {
 		repositorio.eliminar(id);		
 	}
+
+	@Override
+	public List<Asistencia> guardarTodos(List<Asistencia> asistencias) {
+		// delegamos al repositorio la operación por lote
+		return repositorio.guardarTodos(asistencias);
+	}
 }

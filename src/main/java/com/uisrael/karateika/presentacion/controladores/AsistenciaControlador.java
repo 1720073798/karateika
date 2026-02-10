@@ -3,6 +3,7 @@ package com.uisrael.karateika.presentacion.controladores;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import com.uisrael.karateika.presentacion.mapeadores.IAsistenciaDtoMapper;
 
 import jakarta.validation.Valid;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/asistencias")
 public class AsistenciaControlador {
@@ -45,5 +47,13 @@ public class AsistenciaControlador {
                         mapper.toDomain(request)
                 )
         );
+    }
+
+    @PostMapping("/batch")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<AsistenciaResponseDTO> crearLote(@RequestBody List<AsistenciaRequestDTO> requests) {
+        var domains = requests.stream().map(mapper::toDomain).toList();
+        var guardados = asistenciaUseCase.guardarTodos(domains);
+        return guardados.stream().map(mapper::toResponseDto).toList();
     }
 }

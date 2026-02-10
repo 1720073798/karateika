@@ -15,5 +15,8 @@ public interface IAsistenciaRepositorio {
 	
 	void eliminar(int id);
 	
+	// Guardar múltiples asistencias
+	List<Asistencia> guardarTodos(List<Asistencia> asistencias);
+
 
 }

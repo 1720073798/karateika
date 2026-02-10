@@ -3,13 +3,17 @@ package com.uisrael.karateika.presentacion.dto.request;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class AlumnoRequestDTO {
 	@NotBlank
 	private int alu_id;
-	@NotBlank
+	@NotBlank(message = "La cédula no puede estar vacía")
+    @Size(min = 10, max = 10, message = "La cédula debe tener 10 dígitos")
+    @Pattern(regexp = "\\d{10}", message = "La cédula solo debe contener números")
 	private String alu_cedula;
 	@NotBlank
 	private String alu_nombre;
@@ -29,9 +33,9 @@ public class AlumnoRequestDTO {
 	private String alu_cinturon_ingreso;
 	@NotBlank
 	private String alu_cinturon_actual;
-	@NotBlank
+	
 	private String alu_nombre_representante;
-	@NotBlank
+	
 	private String alu_telefono_representante;
 	@NotBlank
 	private char alu_estado;

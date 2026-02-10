@@ -5,7 +5,6 @@ import java.time.LocalDate;
 public class AscensoResponseDTO {
 
     private int asc_id_serial;
-    private int alu_id;
     private String asc_cinturon;
     private LocalDate asc_fecha_examen;
     private LocalDate asc_fecha_ascenso;
@@ -13,6 +12,8 @@ public class AscensoResponseDTO {
     private String asc_evaluador;
     private String asc_observacion;
     private boolean asc_c_generado;
+    
+    private AlumnoResponseDTO fkalumno;
 
     public int getAsc_id_serial() {
         return asc_id_serial;
@@ -20,14 +21,6 @@ public class AscensoResponseDTO {
 
     public void setAsc_id_serial(int asc_id_serial) {
         this.asc_id_serial = asc_id_serial;
-    }
-
-    public int getAlu_id() {
-        return alu_id;
-    }
-
-    public void setAlu_id(int alu_id) {
-        this.alu_id = alu_id;
     }
 
     public String getAsc_cinturon() {
@@ -85,4 +78,13 @@ public class AscensoResponseDTO {
     public void setAsc_c_generado(boolean asc_c_generado) {
         this.asc_c_generado = asc_c_generado;
     }
+
+	public AlumnoResponseDTO getFkalumno() {
+		return fkalumno;
+	}
+
+	public void setFkalumno(AlumnoResponseDTO fkalumno) {
+		this.fkalumno = fkalumno;
+	}
+    
 }

@@ -89,7 +89,7 @@ public class ConfiguracionGeneral {
 		return new PagosRepositorioImpl(jpaRepositorio, mapper);
 	}
 	@Bean
-	IAsistenciaRepositorio asistenciaRepositorio(IAsistenciaJpaRepositorio jpaRepositorio, IAsistenciaJpaMapper mapper) {
-		return new AsistenciaRepositorioImpl(jpaRepositorio, mapper);
+	IAsistenciaRepositorio asistenciaRepositorio(IAsistenciaJpaRepositorio jpaRepositorio, IAsistenciaJpaMapper mapper, IAlumnoJpaRepositorio alumnoJpaRepositorio) {
+		return new AsistenciaRepositorioImpl(jpaRepositorio, mapper, alumnoJpaRepositorio);
 	}
 }

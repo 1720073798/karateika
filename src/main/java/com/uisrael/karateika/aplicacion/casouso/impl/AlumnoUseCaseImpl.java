@@ -1,7 +1,7 @@
 package com.uisrael.karateika.aplicacion.casouso.impl;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import com.uisrael.karateika.aplicacion.casouso.entradas.IAlumnoUseCase;
 import com.uisrael.karateika.dominio.entidades.Alumno;
@@ -21,11 +21,6 @@ public class AlumnoUseCaseImpl implements IAlumnoUseCase {
 	}
 
 	@Override
-	public Optional<Alumno> buscarPorId(int id) {
-		return alumnoRepository.buscarPorId(id);
-	}
-
-	@Override
 	public List<Alumno> listarTodos() {
 		return alumnoRepository.listarTodos();
 	}
@@ -33,5 +28,17 @@ public class AlumnoUseCaseImpl implements IAlumnoUseCase {
 	@Override
 	public void eliminar(int id) {
 		alumnoRepository.eliminar(id);
+	}
+
+	@Override
+	public Alumno obtenerPorId(int id) {
+		// TODO Auto-generated method stub
+		return alumnoRepository.buscarPorId(id).orElseThrow(() ->new RuntimeException("Alumno no encontrado"));
+	}
+
+	@Override
+	public List<Alumno> findByNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

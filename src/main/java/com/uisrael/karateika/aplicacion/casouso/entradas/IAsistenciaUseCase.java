@@ -13,4 +13,7 @@ public interface IAsistenciaUseCase {
     List<Asistencia> listarTodos();
 
     void eliminar(int id);
+
+    // Guardar múltiples asistencias en lote
+    List<Asistencia> guardarTodos(List<Asistencia> asistencias);
 }

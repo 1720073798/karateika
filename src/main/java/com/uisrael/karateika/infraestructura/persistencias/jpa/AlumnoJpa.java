@@ -52,10 +52,10 @@ public class AlumnoJpa implements Serializable{
 	@Column(name = "alu_cinturon_actual", length = 50, nullable = false)
 	private String alu_cinturon_actual;
 	
-	@Column(name = "alu_nombre_representante", length = 100, nullable = false)
+	@Column(name = "alu_nombre_representante", length = 100)
 	private String alu_nombre_representante;
 	
-	@Column(name = "alu_telefono_representante", length = 15, nullable = false)
+	@Column(name = "alu_telefono_representante", length = 15)
 	private String alu_telefono_representante;
 	
 	@Column(name = "alu_estado", nullable = false)
