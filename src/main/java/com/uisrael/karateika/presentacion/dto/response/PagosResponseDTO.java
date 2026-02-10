@@ -3,12 +3,9 @@ package com.uisrael.karateika.presentacion.dto.response;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-
 public class PagosResponseDTO {
 
-	private int pag_id;
-	private int pag_mes;
-	private int pag_anio;
+	private Integer pag_id;
 	private LocalDate pag_fecha_pago;
 	private String pag_metodo_pago;
 	private String pag_numero_recibo;
@@ -16,27 +13,14 @@ public class PagosResponseDTO {
 	private BigDecimal pag_monto;
 	private String pag_registrado_por;
 	private LocalDate pag_fecha_registro;
-	
+
 	private AlumnoResponseDTO fkalumno;
 	private ComprobanteResponseDTO fkcomprobante;
-	
-	public int getPag_id() {
+	public Integer getPag_id() {
 		return pag_id;
 	}
-	public void setPag_id(int pag_id) {
+	public void setPag_id(Integer pag_id) {
 		this.pag_id = pag_id;
-	}
-	public int getPag_mes() {
-		return pag_mes;
-	}
-	public void setPag_mes(int pag_mes) {
-		this.pag_mes = pag_mes;
-	}
-	public int getPag_anio() {
-		return pag_anio;
-	}
-	public void setPag_anio(int pag_anio) {
-		this.pag_anio = pag_anio;
 	}
 	public LocalDate getPag_fecha_pago() {
 		return pag_fecha_pago;
@@ -93,4 +77,5 @@ public class PagosResponseDTO {
 		this.fkcomprobante = fkcomprobante;
 	}
 
+	
 }
