@@ -15,7 +15,7 @@ import lombok.Data;
 public class PagosRequestDTO {
 
 	
-	private Integer pag_id;
+	private int pag_id;
 
 	@NotNull(message = "La fecha de pago es obligatoria")
 	@PastOrPresent(message = "La fecha de pago no puede ser futura")

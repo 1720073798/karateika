@@ -94,8 +94,18 @@ public class ComprobanteControlador {
 	}
 
 	private void validarNumeroUnico(ComprobanteRequestDTO request) {
+		// Avoid unboxing nullable Integers from request
+		Integer requestId = request.getCom_id();
+		Integer requestNumero = request.getCom_numero();
+		if (requestNumero == null) {
+			// Should be caught by @NotNull validation, but guard defensively
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El número de comprobante es obligatorio");
+		}
+
+		int reqNumero = requestNumero.intValue();
+
 		boolean existe = comprobanteUseCase.listarTodos().stream()
-				.anyMatch(c -> c.getCom_numero() == request.getCom_numero() && c.getCom_id() != request.getCom_id());
+			.anyMatch(c -> c.getCom_numero() == reqNumero && (requestId == null || c.getCom_id() != requestId.intValue()));
 
 		if (existe) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
@@ -107,8 +117,9 @@ public class ComprobanteControlador {
 
 		validarArchivo(archivo);
 
-		if (request.getCom_id() != 0) {
-			comprobanteUseCase.buscarPorId(request.getCom_id()).ifPresent(this::eliminarArchivoFisico);
+		Integer requestId = request.getCom_id();
+		if (requestId != null && requestId.intValue() != 0) {
+			comprobanteUseCase.buscarPorId(requestId.intValue()).ifPresent(this::eliminarArchivoFisico);
 		}
 
 		try {

@@ -1,7 +1,7 @@
 package com.uisrael.karateika.aplicacion.casouso.impl;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import com.uisrael.karateika.aplicacion.casouso.entradas.IAscensoUseCase;
 import com.uisrael.karateika.dominio.entidades.Ascenso;
@@ -21,8 +21,8 @@ public class AscensoUseCaseImpl implements IAscensoUseCase {
     }
 
     @Override
-    public Optional<Ascenso> buscarPorId(int id) {
-        return repositorio.buscarPorId(id);
+    public Ascenso obtenerPorId(int id) {
+        return repositorio.buscarPorId(id).orElseThrow(() ->new RuntimeException("Registro ascenso no encontrado"));
     }
 
     @Override
