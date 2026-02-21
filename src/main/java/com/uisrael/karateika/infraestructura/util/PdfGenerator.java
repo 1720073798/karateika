@@ -64,7 +64,7 @@ public class PdfGenerator {
                     PDFont usedFontForBody = (font != null) ? font : PDType1Font.HELVETICA;
 
                     // --- Draw NAME centered horizontally ---
-                    float nameFontSize = 50f; // adjust size if needed
+                    float nameFontSize = 33f; // adjust size if needed
                     // compute text width in points: (getStringWidth returns 1/1000 text units)
                     float textWidth = usedFontForName.getStringWidth(nombreAlumno) / 1000f * nameFontSize;
                     float xCentered = (imgWidth - textWidth) / 2f;

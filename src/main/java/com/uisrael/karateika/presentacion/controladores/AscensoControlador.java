@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.uisrael.karateika.aplicacion.casouso.entradas.IAlumnoUseCase;
 import com.uisrael.karateika.aplicacion.casouso.entradas.IAscensoUseCase;
+import com.uisrael.karateika.dominio.entidades.Alumno;
 import com.uisrael.karateika.infraestructura.util.PdfGenerator;
 import com.uisrael.karateika.presentacion.dto.request.AscensoRequestDTO;
 import com.uisrael.karateika.presentacion.dto.response.AlumnoResponseDTO;
@@ -55,11 +56,45 @@ public class AscensoControlador {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AscensoResponseDTO crear(@Valid @RequestBody AscensoRequestDTO request) {
-        return mapper.toResponseDto(
+        AscensoResponseDTO guardado = mapper.toResponseDto(
                 ascensoUseCase.guardar(
                         mapper.toDomain(request)
                 )
         );
+
+        // Actualizar el cinturón actual del alumno asociado (si aplica)
+        try {
+            if (guardado.getFkalumno() != null && guardado.getFkalumno().getAlu_id() != 0 && guardado.getAsc_cinturon() != null) {
+                int idAlumno = guardado.getFkalumno().getAlu_id();
+                Alumno alumno = alumnoUseCase.obtenerPorId(idAlumno);
+                if (alumno != null) {
+                    Alumno actualizado = new Alumno(
+                            alumno.getAlu_id(),
+                            alumno.getAlu_cedula(),
+                            alumno.getAlu_nombre(),
+                            alumno.getAlu_apellido(),
+                            alumno.getAlu_direccion(),
+                            alumno.getAlu_telefono(),
+                            alumno.getAlu_email(),
+                            alumno.getAlu_fecha_nacimiento(),
+                            alumno.getAlu_fecha_ingreso(),
+                            alumno.getAlu_cinturon_ingreso(),
+                            guardado.getAsc_cinturon(), // actualizar cinturón actual
+                            alumno.getAlu_nombre_representante(),
+                            alumno.getAlu_telefono_representante(),
+                            alumno.getAlu_estado(),
+                            alumno.isAlu_alerta_pago(),
+                            alumno.getAlu_fecha_creacion(),
+                            alumno.getAlu_fecha_modificacion()
+                    );
+                    alumnoUseCase.guardar(actualizado);
+                }
+            }
+        } catch (Exception ex) {
+            // No detener la creación del ascenso por un fallo al actualizar el alumno; loguear en producción
+        }
+
+        return guardado;
     }
 
     // Nuevo endpoint: guarda y si se solicita genera y devuelve certificado PDF
@@ -71,6 +106,38 @@ public class AscensoControlador {
                         mapper.toDomain(request)
                 )
         );
+
+        // Actualizar el cinturón actual del alumno asociado (si aplica)
+        try {
+            if (guardado.getFkalumno() != null && guardado.getFkalumno().getAlu_id() != 0 && guardado.getAsc_cinturon() != null) {
+                int idAlumno = guardado.getFkalumno().getAlu_id();
+                Alumno alumno = alumnoUseCase.obtenerPorId(idAlumno);
+                if (alumno != null) {
+                    Alumno actualizado = new Alumno(
+                            alumno.getAlu_id(),
+                            alumno.getAlu_cedula(),
+                            alumno.getAlu_nombre(),
+                            alumno.getAlu_apellido(),
+                            alumno.getAlu_direccion(),
+                            alumno.getAlu_telefono(),
+                            alumno.getAlu_email(),
+                            alumno.getAlu_fecha_nacimiento(),
+                            alumno.getAlu_fecha_ingreso(),
+                            alumno.getAlu_cinturon_ingreso(),
+                            guardado.getAsc_cinturon(), // actualizar cinturón actual
+                            alumno.getAlu_nombre_representante(),
+                            alumno.getAlu_telefono_representante(),
+                            alumno.getAlu_estado(),
+                            alumno.isAlu_alerta_pago(),
+                            alumno.getAlu_fecha_creacion(),
+                            alumno.getAlu_fecha_modificacion()
+                    );
+                    alumnoUseCase.guardar(actualizado);
+                }
+            }
+        } catch (Exception ex) {
+            // No detener el flujo por fallo al actualizar alumno; en prod loguear el error
+        }
 
         // Si no se solicitó certificado, devolver el recurso creado normalmente
         if (!guardado.isAsc_c_generado()) {
